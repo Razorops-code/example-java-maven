@@ -1,11 +1,17 @@
+
 tasks:
   build-deps:
     runner: razorci/openjdk:11-buster
     steps:
     - checkout
+    
+    - run: mvn clean install test
+    - reports/junit: 
+      - target/surefire-reports/TEST-*.xml
     - commands:
-      - | 
-        mvn clean install test
+      - |
         curl -Os https://uploader.codecov.io/latest/linux/codecov 
         chmod +x codecov 
-        ./codecov -f ${CODECOV_TOKEN}
+        ./codecov -t ${CODECOV_TOKEN}
+        codecov/upload
+        file: TEST-*.xml
