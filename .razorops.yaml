@@ -5,7 +5,7 @@ tasks:
     steps:
     - checkout
     - run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-    - run: mvn -B test
+    - run: mvn -B clean install test
     - reports/junit: 
       - target/surefire-reports/TEST-*.xml
     - commands:
