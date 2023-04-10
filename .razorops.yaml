@@ -6,7 +6,7 @@ tasks:
     - commands:
       - | 
         mvn clean install 
-       #mvn -B test
+    ## mvn -B test
     #- codecov/upload
         curl -Os https://uploader.codecov.io/latest/linux/codecov 
         chmod +x codecov 
