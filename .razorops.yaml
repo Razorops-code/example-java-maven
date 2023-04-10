@@ -4,7 +4,6 @@ tasks:
     runner: razorci/openjdk:11-buster
     steps:
     - checkout
-    
     - run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
     - run: mvn -B test
     - reports/junit: 
@@ -15,4 +14,4 @@ tasks:
         chmod +x codecov 
         ./codecov -t ${CODECOV_TOKEN}
         codecov/upload
-        file: TEST-*.xml
+      
