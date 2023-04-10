@@ -1,0 +1,11 @@
+tasks:
+  build-deps:
+    runner: razorci/openjdk:11-buster
+    steps:
+    - checkout
+    - commands:
+      - |
+        mvn clean install package 
+        curl -Os https://uploader.codecov.io/latest/linux/codecov 
+        chmod +x codecov 
+        ./codecov -f ${CODECOV_TOKEN}
