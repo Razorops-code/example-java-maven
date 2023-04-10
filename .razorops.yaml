@@ -5,9 +5,9 @@ tasks:
     - checkout
     - commands:
       - | 
-        mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-        mvn -B test
-    - codecov/upload
-       # curl -Os https://uploader.codecov.io/latest/linux/codecov 
-        #chmod +x codecov 
-        #./codecov -f ${CODECOV_TOKEN}
+       # mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+       # mvn -B test
+    #- codecov/upload
+        curl -Os https://uploader.codecov.io/latest/linux/codecov 
+        chmod +x codecov 
+        ./codecov -f ${CODECOV_TOKEN}
