@@ -5,9 +5,7 @@ tasks:
     - checkout
     - commands:
       - | 
-        mvn clean install 
-    ## mvn -B test
-    #- codecov/upload
+        mvn clean install test
         curl -Os https://uploader.codecov.io/latest/linux/codecov 
         chmod +x codecov 
         ./codecov -f ${CODECOV_TOKEN}
